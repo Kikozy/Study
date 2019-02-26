@@ -1,0 +1,195 @@
+*{
+	margin: 0px;
+	padding-bottom: 0px;
+}
+body{
+	background: #333;
+}
+/*主区域*/
+.box{ /*主内容区域*/
+	width: 1000px;
+	height: 280px;
+	margin: 50px auto;
+	/*border: 2px solid green;*/
+	align: center;
+}
+/*子区域预设*/
+.box  > div{ /*父级是.box的div (负责子区域)*/
+	width: 15%;
+	height: 80%;
+	margin: 10px 22px;
+	float: left;
+	/*border: 2px solid blue;*/
+	position: relative; /*相对定位*/
+}
+/*图片区域*/
+.box > div > .icon{ /*.icon父级是div的父级是.box的标签*/
+	display: inline-block;
+	width: 100%;
+	height: 70%;
+	/*border: 1px solid red;*/
+	transition: 0.2s linear 10ms; /*效果0.2s过渡 原速 延迟10ms*/
+	-ms-transition: 0.2s linear 10ms; /*对IE支持*/
+	-webkit-transition: 0.2s linear 10ms ; /*对Chrome和Safari支持*/
+	-o-transition: 0.2s linear 10ms; /*对Opera支持*/
+	-o-moz-transition: 0.2s linear 10ms; /*对firefox支持*/
+}
+.div1 .icon{ /*.div1下的.icon (负责图片)*/
+	background: url(icon/HTML.png) no-repeat center center;/*不允许平铺 左右居中 上下居中*/
+
+}
+.div2 .icon{
+	background: url(icon/CSS.png) no-repeat center center;
+	background-repeat: no-repeat;
+
+}
+.div3 .icon{
+	background: url(icon/JavaScript.png) no-repeat center center;
+	background-repeat: no-repeat;
+
+}
+.div4 .icon{
+	background: url(icon/Photoshop.png) no-repeat center center;
+	background-repeat: no-repeat;
+
+}
+.div5 .icon{
+	background: url(icon/CorelDRAW.png) no-repeat center center;
+	background-repeat: no-repeat;
+
+}
+.box > div > .icon:hover{ /*经过.icon区域触发*/
+	transform: rotate(360deg) scale(1.2); /*效果:旋转360° 缩放1.2*/;
+	-ms-transform: rotate(360deg) scale(1.2); /*对IE支持*/
+	-webkit-transform: rotate(360deg) scale(1.2); /*对Chrome和Safari支持*/
+	-o-transform: rotate(360deg) scale(1.2); /*对Opera支持*/
+	-o-moz-transform: rotate(360deg) scale(1.2); /*对firefox支持*/
+}
+/*按钮区域*/
+.box > div > .button{ /*按钮区域样式*/
+	margin: 15px 0px 0px 0px;
+	display: inline-block;
+	width: 92%;
+	height: 15%; 
+	text-decoration: none; /*文本样式 无*/
+	line-height: 35px; /*行高10px*/
+	color: #F2F2F2;
+	font-family: 微软雅黑;
+	font-weight: bolder;
+	border: 2px solid #FCFCFC;
+	border-radius: 6px;
+	padding-left: 5%;
+	opacity: 0.8; /*透明度0.8*/
+	background: #636363;
+	position: relative;/*相对*/
+	box-shadow: 0px 0px 5px #969696;
+	transition: 0.4s ease 10ms; /*效果0.4s过渡 快到慢 延迟10ms*/
+	-ms-transition: 0.4s linear 10ms; /*对IE支持*/
+	-webkit-transition: 0.4s linear 10ms ; /*对Chrome和Safari支持*/
+	-o-transition: 0.4s linear 10ms; /*对Opera支持*/
+	-o-moz-transition: 0.4s linear 10ms; /*对firefox支持*/
+
+}
+.box > div > .button:hover{
+	color: orange;
+	border: 2px solid #FCFCFC;
+	border-radius: 0px;
+	opacity: 1; /*不透明,效果差不多等于加亮吧*/
+	background-position: 120px center;/*背景向左140 居中*/
+}
+/*动态线区域*/
+.box > div > .button span{/*线的预设*/
+	display: block; /*线是一个块元素*/
+	position: absolute; /*绝对定位*/
+	background: none; /*默认没有颜色*/
+	transition: 0.2s ease 10ms; /*效果0.2s过渡 快到慢 延迟10ms*/
+	-ms-transition: 0.2s linear 10ms; /*对IE支持*/
+	-webkit-transition: 0.2s linear 10ms ; /*对Chrome和Safari支持*/
+	-o-transition: 0.2s linear 10ms; /*对Opera支持*/
+	-o-moz-transition: 0.2s linear 10ms; /*对firefox支持*/
+}
+.box > div > .button:hover span{ /*触发效果*/
+	background: #EE4000; /*触发后颜色(线的颜色)*/
+}
+.box > div >.button > .line-top{ /*顶部线预设*/ /*无颜色在左边 顶部*/
+	height: 2px; /*高2px(和按钮的边框一样)*/
+	width: 50px; /*默认长度*/
+	top: -2px; /*定位-2px，这样才会覆盖边框*/
+	left: -50%; /*默认离边框的距离*/
+}
+.box > div >.button:hover > .line-top{ /*顶部线的触发效果*/ /*向右 变色 过渡 覆盖 边框*/
+	height: 2px; /*高不变*/
+	width: 102%; /*宽与边框同款*/
+	top: -2px; /*覆盖边框*/
+	left: -2px; /*覆盖边框*/
+}
+.box > div >.button > .line-bottom{ /*底部线预设*/ /*无颜色在右边 底部*/
+	height: 2px; /*高2px(和按钮的边框一样)*/
+	width: 50px; /*默认长度*/
+	bottom: -2px; /*定位-2px，这样才会覆盖边框*/
+	right: -50%; /*默认离边框的距离*/
+}
+.box > div >.button:hover > .line-bottom{ /*底部线的触发效果*/ /*向左 变色 过渡 覆盖 边框*/
+	height: 2px; /*高不变*/
+	width: 102%; /*宽与边框同款*/
+	bottom: -2px; /*覆盖边框*/
+	right: -2px; /*覆盖边框*/
+}
+.box > div >.button > .line-left{ /*底部线预设*/ /*无颜色在左边 底部*/
+	height: 50px; /*默高2px*/
+	width: 2px; /*默认宽度 (和按钮的边框一样)*/
+	bottom: -70px; /*默认离边框的距离*/
+	left: -2px; /*定位-2px，这样才会覆盖边框*/
+}
+.box > div >.button:hover > .line-left{ /*左部线的触发效果*/ /*向上 变色 过渡 覆盖 边框*/
+	height: 108%; /*与按钮一样高*/
+	width: 2px; /*宽度不变*/
+	bottom: -2px; /*覆盖边框*/
+	left: -2px;  /*覆盖边框*/
+}
+.box > div >.button > .line-right{ /*底部线预设*/ /*无颜色在右边 顶部*/
+	height: 50px; /*默高2px*/
+	width: 2px; /*默认宽度 (和按钮的边框一样)*/
+	top: -70px; /*默认离边框的距离*/
+	right: -2px; /*定位-2px，这样才会覆盖边框*/
+}
+.box > div >.button:hover > .line-right{ /*左部线的触发效果*/ /*向下 变色 过渡 覆盖 边框*/
+	height: 108%; /*与按钮一样高*/
+	width: 2px; /*宽度不变*/
+	top: -2px; /*覆盖边框*/
+	right: -2px;  /*覆盖边框*/
+}
+/*提示标签区域*/
+.box > div > .tip{
+	position: absolute; /*绝对定位*/
+	height: 10%; /*高度35px*/
+	line-height: 22px; /*行高35px*/
+	background: #ddd; /*背景颜色*/
+	color: orange; /*字的颜色*/
+	width: 80%;
+	top: 50px;
+	left: 10%;
+	text-align: center;
+	border-radius: 5px;
+	opacity: 0;
+	font-style: none;
+	transition: 0.2s ease 10ms; /*效果0.2s过渡 快到慢 延迟10ms*/
+	-ms-transition: 0.2s linear 10ms; /*对IE支持*/
+	-webkit-transition: 0.2s linear 10ms ; /*对Chrome和Safari支持*/
+	-o-transition: 0.2s linear 10ms; /*对Opera支持*/
+	-o-moz-transition: 0.2s linear 10ms; /*对firefox支持*/
+}
+.box > div > .button:hover + .tip{ 
+	display: block;
+	top: 140px;
+	opacity: 0.8;
+	}
+.box > div > .tip span{ /*三角区域*/
+	position: absolute; /*绝对定位*/
+	width: 0px; /*宽度0*/
+	height: 0px; /*高度0*/
+	border: 7px solid transparent; /*透明背景*/
+	border-top-color: #ddd; 
+	left: 45%;
+	bottom: -14px;
+}
